@@ -1,0 +1,47 @@
+body{ 
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Tahoma, Geneva, sans-serif;
+    margin-top: 170px;
+    margin-left: 230px;
+}
+
+@keyframes colorchange{
+    0%      {color:white;}
+    50%     {color:lightskyblue;}
+    100%    {color:white}
+}
+
+@keyframes bounce{
+    0%      {margin-right:30px;}
+    50%     {margin-right:50px;}
+    100%    {margin-right:30px;}
+}
+
+div{
+    width: 500px;
+    height: 70px;
+    animation-name: colorchange;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+/*    animation-direction: alternate;*/
+}
+h2{
+    font-size:50px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+img{
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-right: 30px;
+/*
+    animation-name: bounce;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: cubic-bezier(.45,.78,.5,.31;
+*/
+}
