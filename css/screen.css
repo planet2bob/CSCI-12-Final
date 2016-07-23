@@ -1,47 +1,180 @@
-body{ 
+body {
     background-image: url("../images/bg.jpg");
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: white;
     font-family: Tahoma, Geneva, sans-serif;
+/*
     margin-top: 170px;
     margin-left: 230px;
+*/
 }
 
-@keyframes colorchange{
-    0%      {color:white;}
-    50%     {color:lightskyblue;}
-    100%    {color:white}
+@keyframes colorchange {
+    0% {
+        color: white;
+    }
+    50% {
+        color: lightskyblue;
+    }
+    100% {
+        color: white
+    }
 }
 
-@keyframes bounce{
-    0%      {margin-right:30px;}
-    50%     {margin-right:50px;}
-    100%    {margin-right:30px;}
+@keyframes bounce {
+    0% {
+        margin-right: 30px;
+    }
+    50% {
+        margin-right: 50px;
+    }
+    100% {
+        margin-right: 30px;
+    }
 }
 
-div{
+div {
+/*
     width: 500px;
     height: 70px;
+*/
     animation-name: colorchange;
     animation-iteration-count: infinite;
     animation-duration: 15s;
-/*    animation-direction: alternate;*/
+/*
+    margin-top: 170px;
+    margin-left: 230px;
+*/
+/*    background-color: rgba(20, 20, 40, 0.5);*/
+    /*    animation-direction: alternate;*/
 }
-h2{
-    font-size:50px;
+
+h2 {
+    font-size: 50px;
     padding-bottom: 0px;
     margin-bottom: 10px;
 }
-img{
+
+#name_field{
+    margin-top: 7%;
+    margin-left: 15%;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: url(yourimage.png) repeat-x;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+ul li{
+    padding-top:1em;
+    padding-bottom: 1em;
+    background-color: rgba(40, 40, 80, 0.5);
+    color: #FF0000;
+    display: inline;
+    float: left;
+    width: calc(25% - 1px);
+    border-right: 1px solid #000000;
+    text-align:center;
+}
+
+/*
+ul li:hover{
+    background-color: rgba(20, 20, 40, 0.7);
+}
+*/
+
+ul li a {
+    width: 100%;
+    height: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.15em;
+}
+
+ul li:last{
+    border-right: none;
+}
+
+img {
     width: 30px;
     height: 30px;
     float: left;
-    margin-right: 30px;
-/*
+    margin-right: 40px;
+    /*
     animation-name: bounce;
     animation-iteration-count: infinite;
     animation-duration: 10s;
     animation-timing-function: cubic-bezier(.45,.78,.5,.31;
 */
 }
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+	opacity:0;  /* make things invisible upon start */
+	-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+	-moz-animation:fadeIn ease-in 1;
+	animation:fadeIn ease-in 1;
+
+	-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+	-moz-animation-fill-mode:forwards;
+	animation-fill-mode:forwards;
+
+	-webkit-animation-duration:1s;
+	-moz-animation-duration:1s;
+	animation-duration:1s;
+}
+
+.animate {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/*=== FADE IN DOWN ===*/
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+ 
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+ 
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+ 
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+ 
