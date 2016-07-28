@@ -1,39 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 
 <head>
     <meta charset="UTF-8" />
     <title>Christian Wu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.css">
     <link rel="stylesheet" href="css/screen.css" />
     <link href="css/hover.css" rel="stylesheet" media="all">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.transit/0.9.12/jquery.transit.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.js"></script>
 </head>
 
 <body>
     <header id="main">
         <ul>
-            <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="#" data-pjax='#main' id="refresh">Home</a></li>
+            <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="index.html" class="animsition-link" id="to_refresh">Home</a></li>
             <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="https://www.google.com">Projects</a></li>
             <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="#">Bio</a></li>
-            <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="contact.html" data-pjax='#main'>Contact</a></li>
+            <li class="hvr-bounce-to-bottom animate fadeInDown"><a href="contact.html" class="animsition-link" id="to_contact">Contact</a></li>
         </ul>
     </header>
-    <div class="container" id="pjax-container">
+    <div class="animsition" id="pjax-container">
         <h2 class="hvr-underline-from-left fade-in">Title Text</h2>
-        <p class="fade-in">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             <br>
         </p>
-        <p class="fade-in">""Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+        <p>""Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
             <br>
         </p>
 
     </div>
     
-    <iframe id="newPage" src="index.html"></iframe>
+<!--
+    <iframe id="index_page" src="index.html"></iframe>
+    <iframe id="contact_page" src="contact.html"></iframe>
+    
     <script>
-        $("#refresh").click(function () { $('#newPage').transition({top: '0%' }); });
+        $("#to_refresh").click(function () { $('#index_page').transition({top: '0%' }); });
+        $("#to_contact").click(function () { $('#contact_page').transition({top: '0%' }); });
     </script>
+-->
+    <script>
+    $(document).ready(function () {
+        $(".animsition").animsition({
+            inClass: 'fade-in-up-sm',
+            outClass: 'fade-out-down-sm',
+            inDuration: 1000,
+            outDuration: 1000,
+            linkElement: '.animsition-link',
+            // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+            loading: true,
+            loadingParentElement: '#pjax-container', //animsition wrapper element
+            loadingClass: 'animsition-loading',
+            loadingInner: '', // e.g '<img src="loading.svg" />'
+            timeout: false,
+            timeoutCountdown: 20000,
+            onLoadEvent: true,
+            browser: ['animation-duration', '-webkit-animation-duration'],
+            // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+            // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+            overlay: false,
+            overlayClass: 'animsition-overlay-slide',
+            overlayParentElement: 'body',
+            transition: function (url) {
+                window.location.href = url;
+            }
+        });
+    });
+</script>
     
 </body>
 
